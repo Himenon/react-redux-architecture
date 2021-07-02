@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        os: [ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Test & Build
+        run: |
+          git config --global user.email "actions@gihub.com"
+          git config --global user.name "github-actions[bot]"
+          yarn install --frozen-lockfile
+          NODE_ENV=production yarn build
+          yarn test
+          yarn check:pr
+        env:
+          CI: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DATALAKE_GITHUB_TOKEN: ${{ secrets.DATALAKE_GITHUB_TOKEN }}

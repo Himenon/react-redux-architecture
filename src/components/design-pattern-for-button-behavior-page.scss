@@ -1,0 +1,29 @@
+.catalog-page {
+  padding-top: 3em;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 1.75em;
+  font-family: serif;
+}
+
+.default-pattern-section {
+  composes: default-pattern-section from "./DesignPatternForButtonBehavior/button-pattern-section.scss";
+}
+
+.blocking-pattern-section {
+  composes: blocking-pattern-section from "./DesignPatternForButtonBehavior/button-pattern-section.scss";
+}
+
+.debounce-pattern-section {
+  composes: debounce-pattern-section from "./DesignPatternForButtonBehavior/button-pattern-section.scss";
+}
+
+.throttle-pattern-section {
+  composes: throttle-pattern-section from "./DesignPatternForButtonBehavior/button-pattern-section.scss";
+}
+
+.transition-pattern-section {
+  composes: transition-pattern-section from "./DesignPatternForButtonBehavior/button-pattern-section.scss";
+}
