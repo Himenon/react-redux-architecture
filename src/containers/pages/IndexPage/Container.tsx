@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import { IndexPage as View } from "../../components";
-import { IndexPage as Store } from "../../stores";
+import { IndexPage as View } from "@app/components";
+import { IndexPage as Store } from "@app/stores";
 
 export { Store };
 

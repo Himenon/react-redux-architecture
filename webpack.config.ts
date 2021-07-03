@@ -184,6 +184,9 @@ const config: webpack.Configuration & { devServer?: webpackDevServer.Configurati
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".scss"],
+    alias: {
+      "@app": path.join(__dirname, "src")
+    },
   },
   externals: {
     react: "React",
