@@ -1,4 +1,3 @@
-import { makeAutoObservable } from "mobx";
 
 export interface State {
   root: string;
@@ -16,7 +15,6 @@ export interface GetUrlOption {
 
 export class Store {
   constructor(private state: State = DEFAULT_STATE) {
-    makeAutoObservable(this);
   }
 
   public getUrl(key: keyof State, option?: GetUrlOption): string {

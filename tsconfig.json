@@ -23,7 +23,11 @@
     "declaration": true,
     "jsx": "react",
     "skipLibCheck": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": [
+      "node_modules/@types",
+      "types"
+    ]
   },
   "exclude": ["./node_modules"],
   "ordered-imports": [

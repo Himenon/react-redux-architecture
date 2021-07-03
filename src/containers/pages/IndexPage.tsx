@@ -1,5 +1,4 @@
 import * as React from "react";
-import { observer } from "mobx-react";
 
 import { IndexPage as View } from "../../components";
 import { IndexPage as Store } from "../../stores";
@@ -15,4 +14,5 @@ const IndexPageContainer: React.VFC<Props> = ({ store }: Props) => {
   return <View.Component {...props} />;
 };
 
-export const Component = observer(IndexPageContainer);
+export const Component = IndexPageContainer;
+

@@ -1,10 +1,8 @@
-import { makeAutoObservable } from "mobx";
 import type { BasePage } from "../../components";
 import type * as Types from "../types/bootstrap";
 
 export class Store {
   constructor(private stores: Types.Stores) {
-    makeAutoObservable(this);
   }
 
   public generateProps = (): BasePage.Navigation.Props => {

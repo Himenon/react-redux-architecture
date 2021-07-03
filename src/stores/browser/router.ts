@@ -1,4 +1,3 @@
-import { makeAutoObservable } from "mobx";
 import type { History, Location, LocationDescriptor } from "history";
 
 export interface State {
@@ -8,7 +7,6 @@ export interface State {
 
 export class Store {
   constructor(private state: State) {
-    makeAutoObservable(this);
     this.updateLocation({
       ...state.location, // this.stateにするとwarningがでる
       hash: window.location.hash,

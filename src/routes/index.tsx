@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Switch, Route, Router } from "react-router-dom";
 import { createBrowserHistory, createLocation, History } from "history";
-import * as DesignPatternButtonBehavior from "./pages/design-pattern/button-behavior";
 import * as Index from "./pages";
 import type * as BootstrapTypes from "../stores/types/bootstrap";
 import type * as App from "../stores/types/application";
@@ -39,10 +38,6 @@ export const Component = () => {
   const history = createBrowserHistory();
   const appStores = createApplicationStores(history);
   const routes = [
-    {
-      path: appStores.domain.site.getUrl("design-pattern/button-behavior"),
-      render: () => <DesignPatternButtonBehavior.Component {...appStores} />,
-    },
     {
       path: appStores.domain.site.getUrl("root"),
       render: () => <Index.Component {...appStores} />,
