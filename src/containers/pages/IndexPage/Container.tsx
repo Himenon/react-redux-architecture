@@ -15,4 +15,3 @@ const IndexPageContainer: React.VFC<Props> = ({ store }: Props) => {
 };
 
 export const Component = IndexPageContainer;
-

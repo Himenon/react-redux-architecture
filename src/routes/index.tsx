@@ -1,12 +1,13 @@
 import * as React from "react";
 import { Switch, Route, Router } from "react-router-dom";
+import {} from "react-redux";
 import { createBrowserHistory, createLocation, History } from "history";
 import * as Index from "./pages";
-import type * as BootstrapTypes from "../stores/types/bootstrap";
-import type * as App from "../stores/types/application";
-import * as Browser from "../stores/browser";
-import * as Domain from "../stores/domain";
-import * as View from "../stores/view";
+import type * as BootstrapTypes from "@app/stores/types/bootstrap";
+import type * as App from "@app/stores/types/application";
+import * as Browser from "@app/stores/browser";
+import * as Domain from "@app/stores/domain";
+import * as View from "@app/stores/view";
 
 const createApplicationStores = (history: History): App.Stores => {
   const routerStore = new Browser.Router.Store({
