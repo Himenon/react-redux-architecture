@@ -1,7 +1,9 @@
-import type * as Counter from "./Counter";
+import * as Counter from "./Counter";
 
-export type Actions = {
-  
-}
+export const actions = {
+  counter: Counter.Action,
+};
+
+actions.counter.decrement(100);
 
 export type Types = Counter.Action.Types;

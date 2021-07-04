@@ -1,15 +1,15 @@
 import * as React from "react";
-import { useStore } from "@app/context/IndexPage";
+import { useDispatch } from "@app/hooks/pages/IndexPage";
 import { IndexPage as View } from "@app/components";
 import * as Counter from "./Counter";
 
 const generateProps = (): View.Props => {
-  const store = useStore();
+  const dispatch = useDispatch();
   return {
     total: Counter.generateProps(),
     incrementButton: {
       onClick: () => {
-        store.dispatch({
+        dispatch({
           type: "increment",
           payload: {
             amount: 100,
@@ -18,7 +18,7 @@ const generateProps = (): View.Props => {
         });
       },
       children: "Count Up",
-    },  
+    },
   };
 };
 
