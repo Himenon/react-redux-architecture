@@ -10,11 +10,10 @@ const generateProps = (store: Store): View.Props => {
     total: Counter.generateProps(store),
     incrementButton: {
       onClick: () => {
-
         store.dispatch({
           type: "increment",
           amount: 100,
-        })
+        });
       },
       children: "Cont Up",
     },

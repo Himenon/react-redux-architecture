@@ -10,7 +10,9 @@ export const Component = () => {
     <Context.IndexPageProvider>
       <Router history={history}>
         <Switch>
-          <Route path="/" render={IndexPage.Component} />
+          <Route path="/">
+            <IndexPage.Component />
+          </Route>
         </Switch>
       </Router>
     </Context.IndexPageProvider>
