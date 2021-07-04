@@ -1,14 +1,14 @@
 import * as React from "react";
 
 export interface Props {
-  count: React.HTMLAttributes<HTMLDivElement>;
+  total: React.HTMLAttributes<HTMLDivElement>;
   incrementButton: React.HTMLAttributes<HTMLButtonElement>;
 }
 
 const Counter: React.VFC<Props> = (props: Props) => {
   return (
     <div>
-      <div {...props.count} />
+      <div {...props.total} />
       <button {...props.incrementButton} />
     </div>
   );
