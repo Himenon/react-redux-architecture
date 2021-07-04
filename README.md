@@ -1,2 +1,2 @@
-# React redux architecture
+# TypeSafe react-redux-architecture
 

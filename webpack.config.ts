@@ -103,7 +103,7 @@ const config: webpack.Configuration & { devServer?: webpackDevServer.Configurati
       config: [__filename],
     },
   },
-  devtool: "eval-source-map",
+  devtool: isProduction ? undefined : "eval",
   output: {
     path: path.join(__dirname, "dist/js"),
     clean: true,
@@ -162,6 +162,9 @@ const config: webpack.Configuration & { devServer?: webpackDevServer.Configurati
       app.use("/favicon.ico", express.static("public/favicon.ico"));
       app.use("/scripts/react.development.js", express.static(find("react/umd/react.development.js")));
       app.use("/scripts/react-dom.development.js", express.static(find("react-dom/umd/react-dom.development.js")));
+      // app.use("/scripts/react.development.js", express.static(find("react/umd/react.profiling.min.js")));
+      // app.use("/scripts/react-dom.development.js", express.static(find("react-dom/umd/react-dom.profiling.min.js")));
+      
       app.use("/stylesheets/bootstrap.min.css", express.static(find("bootstrap/dist/css/bootstrap.min.css")));
       app.use("/stylesheets/bootstrap.min.css.map", express.static(find("bootstrap/dist/css/bootstrap.min.css.map")));
     },
@@ -174,6 +177,9 @@ const config: webpack.Configuration & { devServer?: webpackDevServer.Configurati
         exclude: [/node_modules/],
         options: {
           configFile: "tsconfig.json",
+          compilerOptions: {
+            noUnusedParameters: isProduction,
+          }
         },
       },
       {
@@ -184,6 +190,9 @@ const config: webpack.Configuration & { devServer?: webpackDevServer.Configurati
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".scss"],
+    alias: {
+      "@app": path.join(__dirname, "src")
+    },
   },
   externals: {
     react: "React",
