@@ -5,7 +5,7 @@ import { initialState, State } from "./State";
 export { Action, State, initialState };
 
 export const reducer = createReducer(initialState, builder => {
-  builder.addCase(Action.increment, (state: State, action: Action.IncrementAction) => {
+  builder.addCase(Action.increment, (state: State, action) => {
     return {
       ...state,
       total: state.total + action.payload.amount,
