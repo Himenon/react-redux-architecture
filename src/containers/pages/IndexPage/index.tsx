@@ -1,28 +1,32 @@
 import * as React from "react";
-import { useStore, Store } from "@app/context";
+import { useStore, useSelector, Store, State } from "@app/context";
 import { IndexPage as View } from "@app/components";
 import * as Counter from "./Counter";
 
 // import { createSelectorHook } from "react-redux";
 
-const generateProps = (store: Store): View.Props => {
+const generateProps = (store: Store, state: State): View.Props => {
   return {
-    total: Counter.generateProps(store),
+    total: Counter.generateProps(store, state),
     incrementButton: {
       onClick: () => {
         store.dispatch({
           type: "increment",
-          amount: 100,
+          payload: {
+            amount: 100,
+            hoge: 100,
+          },
         });
       },
-      children: "Cont Up",
+      children: "Count Up",
     },
   };
 };
 
 const IndexPageContainer: React.VFC = () => {
   const store = useStore();
-  const props = generateProps(store);
+  const state = useSelector(state => state);
+  const props = generateProps(store, state);
   return <View.Component {...props} />;
 };
 

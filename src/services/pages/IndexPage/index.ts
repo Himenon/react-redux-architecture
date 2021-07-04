@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers, compose } from "redux";
 import { initialState, State } from "./State";
 import * as Counter from "./Counter";
 import * as Action from "./Action";
@@ -13,13 +13,14 @@ const createReducer = () => {
   return reducer;
 };
 
-export interface Store extends ReduxStore {
+export interface Store extends ReduxStore<State> {
   getState: () => State;
 }
 
 export const createStore = (): Store => {
   const reducer = createReducer();
-  const reduxStore = createReduxStore(reducer, initialState);
+  const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const reduxStore = createReduxStore(reducer, initialState, composeEnhancers());
   return {
     dispatch: reduxStore.dispatch,
     getState: reduxStore.getState,
