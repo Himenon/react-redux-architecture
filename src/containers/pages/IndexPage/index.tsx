@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useStore } from "@app/context";
+import { useStore } from "@app/context/IndexPage";
 import { IndexPage as View } from "@app/components";
 import * as Counter from "./Counter";
 
@@ -18,7 +18,7 @@ const generateProps = (): View.Props => {
         });
       },
       children: "Count Up",
-    },
+    },  
   };
 };
 

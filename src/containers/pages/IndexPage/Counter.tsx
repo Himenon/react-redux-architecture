@@ -1,4 +1,4 @@
-import { useSelector } from "@app/context";
+import { useSelector } from "@app/context/IndexPage";
 import { IndexPage as View } from "@app/components";
 
 export const generateProps = (): View.Props["total"] => {
